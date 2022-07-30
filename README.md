@@ -335,3 +335,11 @@ curl -X GET "localhost:9200/school/_search" -H 'Content-Type: application/json' 
 }'
 ```
 
+### SQL
+Elasticsearch SQL is an X-Pack component that allows SQL-like queries to be executed in real-time against Elasticsearch
+```
+curl -X POST "localhost:9200/_sql?format=txt" -H 'Content-Type: application/json' -d'
+{
+  "query": "SELECT firstName, lastName, email, age, city FROM users WHERE age > 25"
+}'
+```
