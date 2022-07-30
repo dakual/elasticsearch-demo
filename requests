@@ -1,0 +1,10 @@
+{ "index" : { "_index" : "users", "_id" : "1" } }
+{ "firstName" : "Ali", "lastName" : "Yılmaz", "email" : "ali@mail.com", "age" : 22, "city" : "Ankara", "roles" : ["role-1"]}
+{ "index" : { "_index" : "users", "_id" : "2" } }
+{ "firstName" : "Veli", "lastName" : "Öztürk", "email" : "veli@mail.com", "age" : 26, "city" : "İstanbul", "roles" : ["role-1","role-2"]}
+{ "index" : { "_index" : "users", "_id" : "3" } }
+{ "firstName" : "Mustafa", "lastName" : "Gezer", "email" : "mustafa@mail.com", "age" : 30, "city" : "İzmir", "roles" : ["role-3","role-1"]}
+{ "index" : { "_index" : "users", "_id" : "4" } }
+{ "firstName" : "Fatih", "lastName" : "Tekin", "email" : "fatih@mail.com", "age" : 28, "city" : "Ankara", "roles" : ["role-4"]}
+{ "index" : { "_index" : "users", "_id" : "5" } }
+{ "firstName" : "Mehmet", "lastName" : "Aytekin", "email" : "mehmet@mail.com", "age" : 38, "city" : "Antalya", "roles" : ["role-2","role-5"]}
