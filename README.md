@@ -234,6 +234,56 @@ curl -X GET "localhost:9200/school/_search" -H 'Content-Type: application/json' 
     }
 }'
 ```
+### 6. IDs queries
+Returns documents based on their IDs. This query uses document IDs stored in the _id field.
+```
+curl -X GET "localhost:9200/school/_search" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "ids" : {
+      "values" : ["1", "4", "5"]
+    }
+  }
+}'
+```
+
+### 7. Prefix query
+Returns documents that contain a specific prefix in a provided field.
+```
+curl -X GET "localhost:9200/school/_search" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "prefix" : { "firstName" : "Me" }
+    }
+  }
+}'
+```
+
+### 8. Wildcard query
+Returns documents that contain terms matching a wildcard pattern.
+```
+curl -X GET "localhost:9200/school/_search" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "wildcard": {
+      "firstName": { "value": "Me*m" }
+    }
+  }
+}'
+```
+
+### 9. Fuzzy query
+Returns documents that contain terms similar to the search term.
+```
+curl -X GET "localhost:9200/school/_search" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "fuzzy": {
+      "firstName": { "value": "Mem", "fuzziness": "AUTO", "transpositions": true }
+    }
+  }
+}'
+```
 
 ### Paginate search resultsedit
 By default, searches return the top 10 matching hits. To page through a larger set of results, you can use the search API's from and size parameters
@@ -264,5 +314,24 @@ curl -X GET "localhost:9200/school/_search" -H 'Content-Type: application/json' 
 }'
 ```
 
+### Aggregations
+An aggregation summarizes your data as metrics, statistics, or other analytics. Aggregations help you answer questions like:
 
+- What’s the average load time for my website?
+- Who are my most valuable customers based on transaction volume?
+- What would be considered a large file on my network?
+- How many products are in each product category?
+```
+curl -X GET "localhost:9200/school/_search" -H 'Content-Type: application/json' -d'
+{
+  "size": 0,
+  "aggs": {
+    "my-agg-name": {
+      "avg": {
+        "field": "age", "missing": 0
+      }
+    }
+  }
+}'
+```
 
